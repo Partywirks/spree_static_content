@@ -38,12 +38,12 @@
     <div class="form-group field">
       <%= f.check_box :show_in_header %>
       <%= f.label :show_in_header %>
-    </div
-
-    <div class="form-group field">
-      <%= f.check_box :show_in_footer %>
-      <%= f.label :show_in_footer %>
     </div>
+
+    <!--div class="form-group field">
+      <%# f.check_box :show_in_footer %>
+      <%# f.label :show_in_footer %>
+    </div-->
 
     <div class="form-group field">
       <%= f.check_box :visible %>
@@ -58,23 +58,24 @@
         <%= check_box_tag "page[store_ids][]", store.id, @page.stores.include?(store) %> <%= store.name %>
       <% end %>
     </div>
-    <div class="form-group field">
-      <%= f.label :meta_title %><br />
-      <%= f.text_field :meta_title, :class => 'fullwidth title' %>
-      <%= f.error_message_on :meta_title %>
+
+    <!--div class="form-group field">
+      <%# f.label :meta_title %><br />
+      <%# f.text_field :meta_title, :class => 'fullwidth title' %>
+      <%# f.error_message_on :meta_title %>
     </div>
 
     <div class="form-group field">
-      <%= f.label :meta_keywords %><br />
-      <%= f.text_field :meta_keywords, :class => 'fullwidth title' %>
-      <%= f.error_message_on :meta_keywords %>
+      <%# f.label :meta_keywords %><br />
+      <%# f.text_field :meta_keywords, :class => 'fullwidth title' %>
+      <%# f.error_message_on :meta_keywords %>
     </div>
 
     <div class="form-group field">
-      <%= f.label :meta_description %><br />
-      <%= f.text_field :meta_description, :class => 'fullwidth title' %>
-      <%= f.error_message_on :meta_description %>
-    </div>
+      <%# f.label :meta_description %><br />
+      <%# f.text_field :meta_description, :class => 'fullwidth title' %>
+      <%# f.error_message_on :meta_description %>
+    </div-->
 
     </div>
   </div>

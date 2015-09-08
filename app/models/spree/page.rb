@@ -18,6 +18,12 @@ class Spree::Page < ActiveRecord::Base
 
   before_save :update_positions_and_slug
 
+  after_initialize :init_defaults
+
+  def init_defaults
+    self.show_in_header  ||= true 
+  end
+
   def initialize(*args)
     super(*args)
 

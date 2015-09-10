@@ -1,7 +1,7 @@
 <% header_links = Spree::Page.by_store(current_store).visible.header_links
 	if header_links.count > 4	 
 %>
-	<ul class="nav navbar-nav navbar-right">
+
 		<li class="dropdown user user-menu">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		    <%= Spree.t(:pages) %> <i class="caret"></i>
@@ -10,15 +10,15 @@
 		  	<%= render :partial => "spree/static_content/static_content_list", :collection => header_links, :as => :page %>
 			</ul>
 		</li>
-	</ul>
+
 
 <%  	
 	else
 %>
 
-		<ul class="nav navbar-nav navbar-right">
+	
 			<%= render :partial => "spree/static_content/static_content_list", :collection => header_links, :as => :page %>
-		</ul>
+
 
 <%			
 	end

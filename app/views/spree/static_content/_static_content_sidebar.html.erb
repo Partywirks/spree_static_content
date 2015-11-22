@@ -1,6 +1,18 @@
 <% if Spree::Page.by_store(current_store).visible.sidebar_links.any? %>
 <nav id="pages" class="sidebar-item">
-  <h6 class="pages-root"><%= Spree.t(:pages) %></h6>
-  <ul class="pages-list"><%= render :partial => "spree/static_content/static_content_list", :collection => Spree::Page.visible.sidebar_links, :as => :page %></ul>
+  <h4><%= Spree.t(:pages) %></h4>
+  <div class="pages-list list-group">
+
+  <% Spree::Page.visible.sidebar_links.each do |page| %>
+	  <% if page.foreign_link.present? %>
+		  <%= link_to page.title, page.foreign_link, {:target => "_blank"} %>
+		<% else %>
+		  <% page_uri = Rails.application.routes.named_routes[:spree].path.spec.to_s == '/' ? page.slug : Rails.application.routes.named_routes[:spree].path.spec.to_s + page.slug %>
+		  <%= link_to page.title, page_uri, { :class=> "list-group-item #{'active' if (request.fullpath.gsub('//','/') == page_uri)}" }  %>
+
+		<% end %>
+	<% end %>
+
+  </div>
 </nav>
 <% end %>

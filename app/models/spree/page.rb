@@ -39,7 +39,9 @@ private
 
   def update_positions_and_slug
     #ensure we can make a valid URL
-    slug = slug.parameterize
+    if slug.try(:parameterize)
+      slug = slug.parameterize
+    end
 
     # ensure that all slugs start with a slash
     slug.prepend('/') if not_using_foreign_link? and not slug.start_with? '/'

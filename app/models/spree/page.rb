@@ -39,8 +39,8 @@ private
 
   def update_positions_and_slug
     #ensure we can make a valid URL
-    if slug.try(:parameterize)
-      slug = slug.parameterize
+    if self.slug.try(:parameterize)
+      self.slug = self.slug.parameterize
     end
 
     # ensure that all slugs start with a slash

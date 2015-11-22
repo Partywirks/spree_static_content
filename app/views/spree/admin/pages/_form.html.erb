@@ -51,11 +51,21 @@
     </div>
 
 
-    <div class="form-group field">
+    <% 
+      show_stores_checkbox = "style=display:none"
+      if Spree::Store.all.count > 1 
+        show_stores_checkbox = ""
+      end
+    %>
+    <div class="form-group field" <%= show_stores_checkbox %>>
 
       <%= f.label :stores, Spree.t(:stores)%><br />
       <% Spree::Store.all.each do |store| %>
-        <%= check_box_tag "page[store_ids][]", store.id, @page.stores.include?(store) %> <%= store.name %>
+        <% if Spree::Store.all.count > 1 %>
+          <%= check_box_tag "page[store_ids][]", store.id, @page.stores.include?(store) %> <%= store.name %>
+        <% else %>
+          <%= check_box_tag "page[store_ids][]", store.id, true %> <%= store.name %>
+        <% end %>
       <% end %>
     </div>
 
